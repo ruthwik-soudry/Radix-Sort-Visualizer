@@ -2,6 +2,9 @@ import React from 'react';
 import { getRadixSortAnimations } from '../sortingAlgorithms/RadixSort';
 import './SortingVisualizer.css';
 
+
+//TBD: to build UI
+//adding chhangeablr constant
 const ANIMATION_SPEED_MS = 5;
 
 const NUMBER_OF_ARRAY_BARS = 100;
@@ -23,10 +26,14 @@ export default class SortingVisualizer extends React.Component {
     };
   }
 
+
+  //resetting array on the component did mount
   componentDidMount() {
     this.resetArray();
   }
 
+
+  //function generating a new array
   resetArray() {
     const array = [];
     for (let i = 0; i < NUMBER_OF_ARRAY_BARS; i++) {
@@ -35,31 +42,19 @@ export default class SortingVisualizer extends React.Component {
     this.setState({ array });
   }
 
+
+  //disbaling the button when sorting animation begins
   disableSortButtons() {
     document.getElementById("generateNewArray").disabled = true;
     document.getElementById("radixSort").disabled = true;
   }
 
+  //enabling the button when sorting animation ends
   restoreStoreButtons() {
     document.getElementById("generateNewArray").disabled = false;
     document.getElementById("radixSort").disabled = false;
   }
 
-
-  //dont delete this
-
-  // testSortingAlgorithms() {
-  //   for (let i = 0; i < 100; i++) {
-  //     const array = [];
-  //     const length = randomIntFromInterval(1, 1000);
-  //     for (let i = 0; i < length; i++) {
-  //       array.push(randomIntFromInterval(-1000, 1000));
-  //     }
-  //     const javaScriptSortedArray = array.slice().sort((a, b) => a - b);
-  //     const mergeSortedArray = getMergeSortAnimations(array.slice());
-  //     // console.log(arraysAreEqual(javaScriptSortedArray, mergeSortedArray));
-  //   }
-  // }
 
   bktsort(algorithmName) {
     this.disableSortButtons();
@@ -120,7 +115,7 @@ export default class SortingVisualizer extends React.Component {
     setTimeout(() => this.restoreStoreButtons(), (animations.length - 1) * ANIMATION_SPEED_MS);
   }
 
-  //try to check random generator in the end
+  //trying to create random color candles in the bar graphs
   //  random_bg_color() {
   //   let x = Math.floor(Math.random() * 256);
   //   let y = Math.floor(Math.random() * 256);
@@ -129,11 +124,10 @@ export default class SortingVisualizer extends React.Component {
   //   return bgColor
   //   }
 
+
+  //function creating the candles for the bar with int values
   render() {
     const { array } = this.state;
-    //trying to generate random colors
-    // const bgRand = this.random_bg_color()
-
 
     return (
       <div className="array-container">
@@ -161,14 +155,3 @@ export default class SortingVisualizer extends React.Component {
 function randomIntFromInterval(min, max) {
   return Math.floor(Math.random() * (max - min + 1) + min);
 }
-
-// dont delete this
-// function arraysAreEqual(arrayOne, arrayTwo) {
-//   if (arrayOne.length !== arrayTwo.length) return false;
-//   for (let i = 0; i < arrayOne.length; i++) {
-//     if (arrayOne[i] !== arrayTwo[i]) {
-//       return false;
-//     }
-//   }
-//   return true;
-// }

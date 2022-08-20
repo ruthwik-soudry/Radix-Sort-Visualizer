@@ -8,7 +8,7 @@ export function getRadixSortAnimations(array){
     return [animations, array];
 }
 
-
+//fuunction to get the max array.
 function getMax(arr,n)
 {
 	let mx = arr[0];
@@ -19,6 +19,7 @@ function getMax(arr,n)
 }
 
 
+//running count sort for the numbes in ones,tens and hunderd with animation
 function countSort(arr, n, exp, animations)
 {
 	let output = new Array(n); // output array
@@ -50,6 +51,7 @@ function countSort(arr, n, exp, animations)
 			arr[i] = output[i];
 }
 
+//function to run radix sort with animation 
 function radixSort(arr, animations)
 {
     let n=arr.length;
