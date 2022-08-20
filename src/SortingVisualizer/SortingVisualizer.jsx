@@ -6,7 +6,7 @@ const ANIMATION_SPEED_MS = 5;
 
 const NUMBER_OF_ARRAY_BARS = 100;
 
-const PRIMARY_COLOR = 'rgba(190, 80, 120)';
+const PRIMARY_COLOR = 'pink';
 
 const SECONDARY_COLOR = 'purple';
 
@@ -120,17 +120,19 @@ export default class SortingVisualizer extends React.Component {
     setTimeout(() => this.restoreStoreButtons(), (animations.length - 1) * ANIMATION_SPEED_MS);
   }
 
-   random_bg_color() {
-    let x = Math.floor(Math.random() * 256);
-    let y = Math.floor(Math.random() * 256);
-    let z = Math.floor(Math.random() * 256);
-    let bgColor = "rgb(" + x + "," + y + "," + z + ")";
-    return bgColor
-    }
+  //try to check random generator in the end
+  //  random_bg_color() {
+  //   let x = Math.floor(Math.random() * 256);
+  //   let y = Math.floor(Math.random() * 256);
+  //   let z = Math.floor(Math.random() * 256);
+  //   let bgColor = "rgb(" + x + "," + y + "," + z + ")";
+  //   return bgColor
+  //   }
 
   render() {
     const { array } = this.state;
-    const bgRand = this.random_bg_color()
+    //trying to generate random colors
+    // const bgRand = this.random_bg_color()
 
 
     return (
@@ -147,9 +149,7 @@ export default class SortingVisualizer extends React.Component {
         </div>
         ))}
 
-
         <button id="generateNewArray" style={{ marginRight: '8px' }} onClick={() => this.resetArray()}>Generate New Array</button>
-        
         <button id="radixSort" style={{ marginRight: '8px' }} onClick={() => this.bktsort('radixSort')}>Radix Sort</button>
       </div>
 
