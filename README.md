@@ -1,6 +1,6 @@
-### PSA_Radix_sort
+### Radix Sort Visualizer 
 
-- Demonstrating  radix sort by visualization.
+- Demonstrating radix sort by visualization.
 
 ## Input
 
